@@ -1,6 +1,22 @@
-# Micua Home（a webapp template）
-
+# Micua Home（a webapp template）---传智播客中，王磊老是的gulp案例。
 [![Build Status](https://secure.travis-ci.org/Micua/Home.svg?branch=master)](http://travis-ci.org/Micua/Home)
+
+##任务介绍
+gulp.task('styles', () => {});   编译sass文件，压缩
+function lint(files, options) {});  语法校验
+gulp.task('html', ['styles'], () => {});  压缩html以及修改所引用的文件路径，如css js
+gulp.task('reversion', ['html'], () => {});  版本管理任务
+gulp.task('images', () => {}); 压缩图片大小
+gulp.task('fonts', () => {}); 字体图标全部放到根目录
+gulp.task('extras', () => {}); 扩展
+gulp.task('clean', del.bind(null, ['temp', 'dist', '.publish'])); 先清除临时文件
+gulp.task('serve', ['styles', 'fonts'], () => {});
+gulp.task('build', ['lint', 'reversion', 'images', 'fonts', 'extras'], () => {});  
+gulp.task('default', ['clean'], () => {
+  gulp.start('build');
+});
+
+
 
 ## Features
 
